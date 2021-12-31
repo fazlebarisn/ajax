@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <h1>Learn Ajax</h1>
+            <h1>Learn Ajax </h1>
             <input type="button" id="load-more" value="Load More"><br><br>
             <div id="table">
             </div>
