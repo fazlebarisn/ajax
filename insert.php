@@ -69,6 +69,21 @@
                     });
                     }
                 });
+
+                // delete data
+                $(document).on("click" , ".delete-btn" , function(){
+
+                    let studentId = $(this).data("id");
+                    
+                    $.ajax({
+                        url : "ajax-delete.php",
+                        data : "POST",
+                        data : {id:studentId},
+                        success : function(data){
+                            jj
+                        }
+                    });
+                });
             });
         </script>
     </body>
