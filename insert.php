@@ -10,19 +10,20 @@
         <div>
             <h1>Insert Data</h1>
             <form action="">
-                <label for="sfirst_name">First Name</label>
-                <input type="text" id="sfirst_name">
-                <label for="slast_name">Last Name</label>
-                <input type="text" id="slast_name">
-                <label for="scity">City</label>
-                <input type="text" id="scity">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name">
+                <label for="city">City</label>
+                <input type="text" id="city">
+                <input type="button" id="insert-data" value="Add More"><br><br>
             </form><br><br>
-            <input type="button" id="insert-data" value="Add More"><br><br>
             <div id="table">
             </div>
         </div>
         <script>
             $(document).ready( function(){
+
                 function loadData(){
                     $.ajax({
                         url : 'ajax-fatch.php',
@@ -33,6 +34,32 @@
                     });                  
                 }
                 loadData();
+
+                $('#insert-data').on('click' , function(e){
+
+                    e.preventDefault();
+
+                    let first_name = $('#first_name').val();
+                    let last_name = $('#last_name').val();
+                    let city = $('#city').val();
+
+                    $.ajax({
+                        url : 'ajax-insert.php',
+                        type : 'post',
+                        data : {
+                            first_name:first_name,
+                            last_name:last_name,
+                            city:city,
+                        },
+                        success : function(data){
+                            if( data == 1 ){
+                                loadData()
+                            }else{
+                                alert("can't save data");
+                            }
+                        }
+                    });
+                });
             });
         </script>
     </body>
