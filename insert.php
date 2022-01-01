@@ -75,7 +75,7 @@
 
                     let studentId = $(this).data("id");
                     let element = this;
-                    
+                    //console.log(studentId);
                     $.ajax({
                         url : "ajax-delete.php",
                         data : "POST",
@@ -85,6 +85,7 @@
                                 $(element).closest("tr").fadeOut();
                             }else{
                                 console.log('connection error');
+                                //console.log(studentId);
                             }
                         }
                     });
