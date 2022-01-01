@@ -74,13 +74,18 @@
                 $(document).on("click" , ".delete-btn" , function(){
 
                     let studentId = $(this).data("id");
+                    let element = this;
                     
                     $.ajax({
                         url : "ajax-delete.php",
                         data : "POST",
                         data : {id:studentId},
                         success : function(data){
-                            jj
+                            if( data == 1 ){
+                                $(element).closest("tr").fadeOut();
+                            }else{
+                                console.log('connection error');
+                            }
                         }
                     });
                 });
