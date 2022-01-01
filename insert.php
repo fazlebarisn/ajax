@@ -61,7 +61,7 @@
                             if( data == 1 ){
                                 loadData()
                                 $("#insert-form").trigger("reset");
-                                $("#success-message").style("display","block").html("Data Inserted Successfully!");
+                                $("#success-message").html("Data Inserted Successfully!");
                             }else{
                                 $("#error-message").html("Can't save data!").slideDown();
                             }
