@@ -1,0 +1,20 @@
+#success-message{
+    background: blue;
+    padding: 10px;
+    margin: 10px;
+    display: none;
+    position:absolute;
+    right: 15px;
+    top: 15px;
+}
+
+#error-message{
+    background: red;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    display: none;
+    position:absolute;
+    right: 15px;
+    top: 15px;
+}
