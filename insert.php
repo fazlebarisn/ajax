@@ -21,8 +21,8 @@
             </form><br><br>
             <div id="table">
             </div>
-            <div id="success-message"></div>
             <div id="error-message"></div>
+            <div id="success-message"></div> 
         </div>
         <script>
             $(document).ready( function(){
@@ -59,9 +59,9 @@
                         },
                         success : function(data){
                             if( data == 1 ){
-                                loadData()
+                                loadData();;
+                                $("#success-message").html("Data inserted successfully!").slideDown();
                                 $("#insert-form").trigger("reset");
-                                $("#success-message").html("Data Inserted Successfully!");
                             }else{
                                 $("#error-message").html("Can't save data!").slideDown();
                             }
