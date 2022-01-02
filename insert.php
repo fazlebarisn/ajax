@@ -46,6 +46,8 @@
                     let last_name = $('#last_name').val();
                     let city = $('#city').val();
 
+                    console.log(first_name,last_name,city);
+
                     if( first_name =="" || last_name=="" || city == "" ){
                         $("#error-message").html("Al fiels are requered!").slideDown();
                     }else{
@@ -58,6 +60,7 @@
                             city:city,
                         },
                         success : function(data){
+                            //console.log(data);
                             if( data == 1 ){
                                 loadData();;
                                 $("#success-message").html("Data inserted successfully!").slideDown();
