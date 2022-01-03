@@ -53,7 +53,7 @@
                     }else{
                         $.ajax({
                         url : 'ajax-insert.php',
-                        type : 'post',
+                        type : 'POST',
                         data : {
                             first_name:first_name,
                             last_name:last_name,
@@ -62,7 +62,7 @@
                         success : function(data){
                             //console.log(data);
                             if( data == 1 ){
-                                loadData();;
+                                loadData();
                                 $("#success-message").html("Data inserted successfully!").slideDown();
                                 $("#insert-form").trigger("reset");
                             }else{
@@ -75,23 +75,24 @@
 
                 // delete data
                 $(document).on("click" , ".delete-btn" , function(){
-
-                    let studentId = $(this).data("id");
-                    let element = this;
-                    //console.log(studentId);
-                    $.ajax({
-                        url : "ajax-delete.php",
-                        data : "POST",
-                        data : {id:studentId},
-                        success : function(data){
-                            if( data == 1 ){
-                                $(element).closest("tr").fadeOut();
-                            }else{
-                                console.log('connection error');
-                                //console.log(studentId);
+                    if(confirm("Do you really want to detete this?")){
+                        let studentId = $(this).data("id");
+                        let element = this;
+                        //console.log(studentId);
+                        $.ajax({
+                            url : "ajax-delete.php",
+                            data : "POST",
+                            data : {id:studentId},
+                            success : function(data){
+                                if( data == 1 ){
+                                    $(element).closest("tr").fadeOut();
+                                }else{
+                                    console.log('connection error');
+                                    //console.log(studentId);
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 });
             });
         </script>
