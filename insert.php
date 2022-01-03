@@ -27,22 +27,6 @@
                 <div id="modal-form">
                     <h2>Edit Form</h2>
                     <table cellpadding="10px" width="100%">
-                        <tr>
-                            <td>First Name</td>
-                            <td><input type="text" id="edit-fname"></td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td><input type="text" id="edit-lname"></td>
-                        </tr>
-                        <tr>
-                            <td>City</td>
-                            <td><input type="text" id="edit-city"></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="submit" id="edit-submit" value="Update"></td>
-                        </tr>
                     </table>
                     <div id="close-btn">X</div>
                 </div>
@@ -122,6 +106,21 @@
                 // Edit data
                 $(document).on("click" , ".edit-btn" , function(){
                     $("#modal").show();
+                    let studentId = $(this).data('eid');
+
+                    $.ajax({
+                        url : "ajax-update-form.php",
+                        type : "POST",
+                        data : { id:studentId },
+                        success : function(data){
+                            $("#modal-form table").html(data);
+                        }
+                    });
+                });
+
+                // Hide Model box
+                $('#close-btn').on('click' , function(){
+                    $("#modal").hide();
                 });
 
             });
