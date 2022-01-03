@@ -23,6 +23,30 @@
             </div>
             <div id="error-message"></div>
             <div id="success-message"></div> 
+            <div id="modal">
+                <div id="modal-form">
+                    <h2>Edit Form</h2>
+                    <table cellpadding="10px" width="100%">
+                        <tr>
+                            <td>First Name</td>
+                            <td><input type="text" id="edit-fname"></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td><input type="text" id="edit-lname"></td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td><input type="text" id="edit-city"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="edit-submit" value="Update"></td>
+                        </tr>
+                    </table>
+                    <div id="close-btn">X</div>
+                </div>
+            </div>
         </div>
         <script>
             $(document).ready( function(){
@@ -94,6 +118,12 @@
                         });
                     }
                 });
+
+                // Edit data
+                $(document).on("click" , ".edit-btn" , function(){
+                    $("#modal").show();
+                });
+
             });
         </script>
     </body>
