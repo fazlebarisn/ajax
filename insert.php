@@ -123,6 +123,26 @@
                     $("#modal").hide();
                 });
 
+                // save update data
+                $(document).on("click" , "#edit-submit" , function(){
+                    let stuId = $('#edit-id').val();
+                    let first_name = $('#edit-fname').val();
+                    let last_name = $('#edit-lname').val();
+                    let city = $('#edit-city').val();
+
+                    $.ajax({
+                        url : "ajax-save-update-data.php",
+                        type : "POST",
+                        data : {id:stuId,first_name:first_name,last_name:last_name,city:city},
+                        success : function(data){
+                            if(data == 1){
+                                $("#modal").hide();
+                                loadData();
+                            }
+                            
+                        }
+                    });
+                });
             });
         </script>
     </body>

@@ -15,7 +15,10 @@ if( mysqli_num_rows($result) > 0 ){
             $output.="
                 <tr>
                     <td>First Name</td>
-                    <td><input type='text' id='edit-fname' value='{$row["first_name"]}'></td>
+                    <td>
+                        <input type='text' id='edit-fname' value='{$row["first_name"]}'>
+                        <input type='text' id='edit-id' hidden value='{$row["id"]}'>
+                    </td>
                 </tr>
                 <tr>
                     <td>Last Name</td>
