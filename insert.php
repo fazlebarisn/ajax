@@ -10,6 +10,10 @@
     <body>
         <div>
             <h1>Insert Data</h1>
+            <div id="search-bar">
+                <label for="search">Search: </label>
+                <input type="text" id="search" autocomplete="off">
+            </div><br>
             <form id="insert-form">
                 <label for="first_name">First Name</label>
                 <input type="text" id="first_name">
@@ -140,6 +144,19 @@
                                 loadData();
                             }
                             
+                        }
+                    });
+                });
+
+                // Live search
+                $("#search").on("keyup" , function(){
+                    let search_term = $(this).val();
+                    $.ajax({
+                        url: "ajax-search.php",
+                        type: "POST",
+                        data: {search:search_term},
+                        success: function(data){
+                            $("#table").html(data);
                         }
                     });
                 });
