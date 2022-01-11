@@ -66,7 +66,7 @@ jQuery(function ($) {
 				
 				$(".table-inputbox").val('');
 				$(".table-inputbox2").val('');
-				$(".wpt_woo_add_cart_button").addClass("enabled ");
+				$(".wpt_woo_add_cart_button").addClass("enabled");
 			}
 			function updateSecondPaint(e){
 				$('.display-temp-error').remove();
@@ -80,13 +80,13 @@ jQuery(function ($) {
 				if( countN == 4 && countN2 == 4 ){
 					$('.display-temp-error').remove();
 					$('.display-temp-error2').remove();
-					$(".wpt_woo_add_cart_button").addClass("enabled ");
+					$(".wpt_woo_add_cart_button").addClass("enabled");
 				}else if( inputVal =="" || countN < 4 ){
-					$(".wpt_woo_add_cart_button").removeClass("enabled ");
+					$(".wpt_woo_add_cart_button").removeClass("enabled");
 					e.preventDefault();
 					$(".table-inputbox").after('<span class="display-temp-error">Need 4 Digit Number</span>');
 				}else if( inputVal2 =="" || countN2 < 4 ){
-					$(".wpt_woo_add_cart_button").removeClass("enabled ");
+					$(".wpt_woo_add_cart_button").removeClass("enabled");
 					e.preventDefault();
 					$(".table-inputbox2").after('<span class="display-temp-error2">Need 4 Digit Number</span>');
 				}
@@ -96,12 +96,12 @@ jQuery(function ($) {
 				let inputVal = $(".table-inputbox").val();
 				var countN = inputVal.toString().length;
 				if( inputVal =="" || countN < 4 ){
-					$(".wpt_woo_add_cart_button").removeClass("enabled ");
+					$(".wpt_woo_add_cart_button").removeClass("enabled");
 					e.preventDefault();
 					$(".table-inputbox").after('<span class="display-temp-error">Need 4 Digit Number</span>');
 				}else{
 					$('.display-temp-error').remove();
-					$(".wpt_woo_add_cart_button").addClass("enabled ");
+					$(".wpt_woo_add_cart_button").addClass("enabled");
 				}
 			}
 		});
