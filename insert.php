@@ -39,17 +39,6 @@
         <script>
             $(document).ready( function(){
 
-                function loadData(){
-                    $.ajax({
-                        url : 'ajax-fatch.php',
-                        type : 'POST',
-                        success : function( data ){
-                            $('#table').html(data);
-                        }
-                    });                  
-                }
-                loadData();
-
                 $('#insert-data').on('click' , function(e){
 
                     e.preventDefault();
@@ -159,6 +148,25 @@
                             $("#table").html(data);
                         }
                     });
+                });
+
+                // pagination
+                function loadTableData(page){
+                    $.ajax({
+                        url: "ajax-pagination.php",
+                        type:"POST",
+                        data: {page_no:page},
+                        success: function(data){
+                            $("#table").html(data);
+                        }
+                    });
+                }
+                loadTableData();
+
+                $(document).on("click" , "#pagination a" , function(e){
+                    e.preventDefault();
+                    let page_id = $(this).attr("id");
+                    loadTableData(page_id);
                 });
             });
         </script>
